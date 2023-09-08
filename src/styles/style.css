@@ -1,0 +1,27 @@
+/* ------------------------------------------------------------ */
+/* estilos generales */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #efefef;
+}
+/* ------------------------------------------------------------ */
+/* spinner de carga*/
+.loader {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+/* ------------------------------------------------------------ */
+/* card de los personajes */
+.card__general {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(15rem,1fr));
+  gap: 1rem;
+}
+.card__Resident img{
+  width: 100%;
+}
