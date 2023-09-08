@@ -6,22 +6,184 @@
   box-sizing: border-box;
 }
 body {
-  background: #efefef;
+  background: #4b4453;
+  /* background: #000; */
+}
+body::-webkit-scrollbar {
+  width: 1rem;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 100vh;
+  background: #00c9a7;
 }
 /* ------------------------------------------------------------ */
-/* spinner de carga*/
+/* navbar */
+.navbar__init {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background-image: url(https://toptoys2u.co.uk/cdn/shop/collections/Website_Category_banners_13.png?v=1662986669);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+.navbar__input {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+.navbar__style__input {
+  width: 0;
+  outline: none;
+  border-radius: 100vh;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: #4FFBDF -3px -3px 15px,
+   #4FFBDF 5px 5px 15px;  
+  padding-left: 40px;
+  background-image: url(https://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png);
+  background-position: center;
+  background-size: 25px;
+  background-repeat: no-repeat;
+}
+.navbar__style__input:focus {
+  width: 400px;
+  cursor: initial;
+  background-position: 10px;
+}
+/* ------------------------------------------------------------ */
+/* spinner de carga y background animado*/
 .loader {
   display: grid;
   place-content: center;
   height: 100vh;
 }
+.box ul li {
+  position: fixed;
+  width: 35px;
+  height: 35px;
+  list-style: none;
+  opacity: 0;
+  background: radial-gradient(deepskyblue, transparent, transparent);
+  bottom: 0;
+  left: 10vw;
+  animation: animate 15s linear infinite;
+}
+.box ul li:nth-child(2) {
+  left: 37vw;
+  animation-delay: 2s;
+}
+.box ul li:nth-child(3) {
+  left: 25vw;
+  animation-delay: 4s;
+}
+.box ul li:nth-child(4) {
+  left: 60vw;
+  animation-delay: 6s;
+}
+.box ul li:nth-child(5) {
+  left: 75vw;
+  animation-delay: 4s;
+}
+@keyframes animate {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+    bottom: 0;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+    bottom: 100%;
+  }
+}
+/* ------------------------------------------------------------ */
+/* informacion de las ubicaciones */
+.article{
+  margin: 0 1rem;
+}
+.article__info {
+  background: rgba(0, 0, 0, 0.6);
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+.article__title {
+  text-align: center;
+  padding: 1rem;
+}
+.article__list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+}
 /* ------------------------------------------------------------ */
 /* card de los personajes */
-.card__general {
+.card__global {
+  margin: 0 1rem;
+}
+.card__general__residents {
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(15rem,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+.card__resident {
+  background: rgba(0, 0, 0, 0.4);
+  /* backdrop-filter: blur(10px); */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  position: relative;
+  color: white;
+  z-index: 100;
+}
+.card__resident img {
+  width: 100%;
+  border-radius: 100vh;
+}
+.card__status {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  background: #4b4453;
+  padding: 0.3rem 1rem;
+  color: white;
+  border-radius: 0 100vh 100vh 0;
+  display: flex;
+  align-items: center;
   gap: 1rem;
 }
-.card__Resident img{
-  width: 100%;
+.Alive {
+  width: 10px;
+  height: 10px;
+  border-radius: 100vh;
+  background: greenyellow;
+}
+.Dead {
+  width: 10px;
+  height: 10px;
+  border-radius: 100vh;
+  background: red;
+}
+.unknown {
+  width: 10px;
+  height: 10px;
+  border-radius: 100vh;
+  background: white;
+}
+.card__list {
+  list-style: none;
 }

@@ -4,6 +4,7 @@ import Loader from "../spinner/Loader";
 import getRandomNumber from "../utils/getRandomNumber";
 import LocationInfo from "./LocationInfo";
 import CardCharacters from "./CardCharacters";
+import BackgroundHome from "../spinner/BackgroundHome";
 
 const Home = () => {
   const [inputValue, setInputValue] = useState(getRandomNumber(126));
@@ -29,19 +30,28 @@ const Home = () => {
   return (
     <div>
       {hasError ? (
-       <h2>❌ Hey! you must provide an id from 1 to 126 😭</h2>
+        <h2>❌ Hey! you must provide an id from 1 to 126 😭</h2>
       ) : (
         <>
-          <form onSubmit={handleSubmit}>
-            <input ref={inputSearch} type="text" />
-            {/* <button>Search</button> */}
-          </form>
+          <nav className="navbar__init">
+            <form onSubmit={handleSubmit}>
+              <div className="navbar__input">
+                <input className="navbar__style__input" ref={inputSearch} type="text" />
+              </div>
+
+              {/* <button>Search</button> */}
+            </form>
+          </nav>
+
           <LocationInfo location={location} />
-          <div className="card__general">
-            {location?.residents.map((residentUrl) => (
-              <CardCharacters residentUrl={residentUrl} key={residentUrl} />
-            ))}
-          </div>
+          <main className="card__global">
+            <div className="card__general__residents">
+              {location?.residents.map((residentUrl) => (
+                <CardCharacters residentUrl={residentUrl} key={residentUrl} />
+              ))}
+            </div>
+          </main>
+          <BackgroundHome />
         </>
       )}
     </div>

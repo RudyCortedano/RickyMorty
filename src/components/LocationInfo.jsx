@@ -4,13 +4,15 @@ const LocationInfo = ({location}) => {
  
   return (
     <>
-      <article>
-        <h2>{location?.name}</h2>
-        <ul>
-          <li><span>Type: </span><span>{location?.type}</span></li>
-          <li><span>Dimension: </span><span>{location?.dimension || 'unknown'}</span></li>
-          <li><span>Population: </span><span>{location?.residents.length}</span></li>
-        </ul>
+      <article className='article'>
+        <div className="article__info">
+          <h2 className='article__title'>{location?.name}</h2>
+          <ul className="article__list">
+            <li><span>Type: </span><span>{location?.type}</span></li>
+            <li><span>Dimension: </span><span>{location?.dimension || 'unknown'}</span></li>
+            <li><span>Population: </span><span>{location?.residents.length}</span></li>
+          </ul>
+        </div>
       </article>
     </>
   )
