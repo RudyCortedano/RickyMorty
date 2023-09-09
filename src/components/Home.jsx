@@ -9,7 +9,9 @@ import BackgroundHome from "../spinner/BackgroundHome";
 const Home = () => {
   const [inputValue, setInputValue] = useState(getRandomNumber(126));
 
-  const url = `https://rickandmortyapi.com/api/location/${inputValue}`;
+  const url = `https://rickandmortyapi.com/api/location/${
+    inputValue || "hola"
+  }`;
   const [location, getLocation, hasError, loading] = useFetch(url);
 
   useEffect(() => {
@@ -36,7 +38,11 @@ const Home = () => {
           <nav className="navbar__init">
             <form onSubmit={handleSubmit}>
               <div className="navbar__input">
-                <input className="navbar__style__input" ref={inputSearch} type="text" />
+                <input
+                  className="navbar__style__input"
+                  ref={inputSearch}
+                  type="text"
+                />
               </div>
 
               {/* <button>Search</button> */}

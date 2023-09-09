@@ -111,7 +111,7 @@ body::-webkit-scrollbar-thumb {
 }
 .article__info {
   background: rgba(0, 0, 0, 0.6);
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   height: 100px;
   border-radius: 10px;
@@ -137,11 +137,11 @@ body::-webkit-scrollbar-thumb {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: 1rem;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 1rem auto;
 }
 .card__resident {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   /* backdrop-filter: blur(10px); */
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   padding: 1rem;
@@ -150,7 +150,7 @@ body::-webkit-scrollbar-thumb {
   color: white;
   z-index: 100;
 }
-.card__resident img {
+.card__resident .card__image {
   width: 100%;
   border-radius: 100vh;
 }
@@ -167,23 +167,68 @@ body::-webkit-scrollbar-thumb {
   gap: 1rem;
 }
 .Alive {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 100vh;
   background: greenyellow;
 }
 .Dead {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 100vh;
   background: red;
 }
 .unknown {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 100vh;
   background: white;
 }
+.card__name{
+  text-align: center;
+  margin: 0.5rem 0;
+}
 .card__list {
-  list-style: none;
+  list-style: none;  
+}
+@media(max-width: 500px){
+  .navbar__init {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid #fff;
+    height: 100px;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+  /* .App{
+    background-image: url(https://w0.peakpx.com/wallpaper/991/62/HD-wallpaper-rick-and-morty-9.jpg);
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+  } */
+  .card__general__residents {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+    /* max-width: 1200px; */
+    margin: 1rem auto;
+  }
+  .card__resident {
+    background: rgba(0, 0, 0, 0.6);
+    /* backdrop-filter: blur(10px); */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: relative;
+    color: white;
+    z-index: 100;
+  }
+  .card__resident img {
+    width: 100%;
+    border-radius: 100vh;
+  }
 }

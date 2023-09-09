@@ -1,7 +1,8 @@
 import React from 'react'
+import PaginationResidents from './PaginationResidents'
 
 const LocationInfo = ({location}) => {
- 
+
   return (
     <>
       <article className='article'>
