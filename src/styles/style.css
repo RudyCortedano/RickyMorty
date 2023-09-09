@@ -30,7 +30,7 @@ body::-webkit-scrollbar-thumb {
   background-repeat: no-repeat;
   background-position: center;
   margin-bottom: 1rem;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 5px #4ffbdf, 0 0 8px #4ffbdf, 0 0 8px #4ffbdf;
 }
 .navbar__input {
   display: flex;
@@ -45,10 +45,9 @@ body::-webkit-scrollbar-thumb {
   border: none;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: #4FFBDF -3px -3px 15px,
-   #4FFBDF 5px 5px 15px;  
+  box-shadow: #4ffbdf -3px -3px 15px, #4ffbdf 5px 5px 15px;
   padding-left: 40px;
-  background-image: url(https://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png);
+  background-image: url(https://cdn.pixabay.com/photo/2013/10/01/16/55/magnifying-glass-189254_1280.png);
   background-position: center;
   background-size: 25px;
   background-repeat: no-repeat;
@@ -106,7 +105,7 @@ body::-webkit-scrollbar-thumb {
 }
 /* ------------------------------------------------------------ */
 /* informacion de las ubicaciones */
-.article{
+.article {
   margin: 0 1rem;
 }
 .article__info {
@@ -116,7 +115,7 @@ body::-webkit-scrollbar-thumb {
   height: 100px;
   border-radius: 10px;
   color: white;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 5px #4ffbdf, 0 0 8px #4ffbdf, 0 0 8px #4ffbdf;
 }
 .article__title {
   text-align: center;
@@ -142,13 +141,16 @@ body::-webkit-scrollbar-thumb {
 }
 .card__resident {
   background: rgba(0, 0, 0, 0.6);
-  /* backdrop-filter: blur(10px); */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 5px #4ffbdf, 0 0 8px #4ffbdf, 0 0 8px #4ffbdf;
   padding: 1rem;
   border-radius: 0.5rem;
   position: relative;
   color: white;
   z-index: 100;
+  transition: 0.3s;
+}
+.card__resident:hover {
+  transform: scale(1.1);
 }
 .card__resident .card__image {
   width: 100%;
@@ -184,15 +186,39 @@ body::-webkit-scrollbar-thumb {
   border-radius: 100vh;
   background: white;
 }
-.card__name{
+.card__name {
   text-align: center;
   margin: 0.5rem 0;
 }
 .card__list {
-  list-style: none;  
+  list-style: none;
 }
-@media(max-width: 500px){
-  .navbar__init {
+/* ------------------------------------------------------------ */
+/* estilos de los botones del paginado */
+.Button__pagination button {
+  padding: 0 1.2rem;
+  background: #00c9a7;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1rem 0.2rem;
+  box-shadow: 0 0 5px #00c9a7, 0 0 10px #00c9a7, 0 0 10px #00c9a7;
+  transition: transform 0.3s;
+}
+.Button__pagination button:hover {
+  box-shadow: 0 0 10px #4ffbdf, 0 0 20px #4ffbdf, 0 0 20px #4ffbdf;
+  transform: scale(1.1);
+}
+/* ------------------------------------------------------------ */
+/* HasError */
+.HasError {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+/* ------------------------------------------------------------ */
+@media (max-width: 500px) {
+  /* .navbar__init {
     position: relative;
     width: 100%;
     top: 0;
@@ -202,33 +228,10 @@ body::-webkit-scrollbar-thumb {
     border-bottom: 1px solid #fff;
     height: 100px;
     margin-bottom: 1rem;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-  }
-  /* .App{
-    background-image: url(https://w0.peakpx.com/wallpaper/991/62/HD-wallpaper-rick-and-morty-9.jpg);
-    background-size: cover;
-    background-position: center;
-    position: fixed;
   } */
   .card__general__residents {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 1rem;
-    /* max-width: 1200px; */
-    margin: 1rem auto;
-  }
-  .card__resident {
-    background: rgba(0, 0, 0, 0.6);
-    /* backdrop-filter: blur(10px); */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    position: relative;
-    color: white;
-    z-index: 100;
-  }
-  .card__resident img {
-    width: 100%;
-    border-radius: 100vh;
   }
 }

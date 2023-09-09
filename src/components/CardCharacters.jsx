@@ -4,7 +4,7 @@ import useFetch from '../hooks/useFech'
 const CardCharacters = ({residentUrl}) => {
 
   const [resident, getResidents] = useFetch(residentUrl);
-
+ 
   useEffect (() => {
     getResidents()
   }, [])
@@ -28,7 +28,7 @@ const CardCharacters = ({residentUrl}) => {
               <li className='card__item'><span className='card__info'>Episodes whre appear: </span><span>{resident?.episode.length}</span></li>
             </ul>
         </section>
-      </article>  
+      </article>    
     </>
   )
 }
