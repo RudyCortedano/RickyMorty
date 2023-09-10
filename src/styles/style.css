@@ -32,6 +32,9 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 1rem;
   box-shadow: 0 0 5px #4ffbdf, 0 0 8px #4ffbdf, 0 0 8px #4ffbdf;
 }
+.navbar__logo{
+  display: none;
+}
 .navbar__input {
   display: flex;
   justify-content: flex-end;
@@ -127,6 +130,11 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   list-style: none;
 }
+.article__locationName{
+  margin-top: 3rem;
+text-align: center;
+  color: white;
+}
 /* ------------------------------------------------------------ */
 /* card de los personajes */
 .card__global {
@@ -148,8 +156,16 @@ body::-webkit-scrollbar-thumb {
   color: white;
   z-index: 100;
   transition: 0.3s;
+  cursor: pointer;
+  transition: .3s;
 }
-.card__resident:hover {
+.card__resident:hover{
+  box-shadow: 0 0 10px #B39CD0, 0 0 15px #B39CD0, 0 0 15px #B39CD0;
+  /* background: rgba(255, 255, 255, 0.8); */
+  background: white;
+  color: #00c9a7;
+}
+.card__resident:active{
   transform: scale(1.1);
 }
 .card__resident .card__image {
@@ -218,20 +234,50 @@ body::-webkit-scrollbar-thumb {
 }
 /* ------------------------------------------------------------ */
 @media (max-width: 500px) {
-  /* .navbar__init {
-    position: relative;
-    width: 100%;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    border-bottom: 1px solid #fff;
-    height: 100px;
-    margin-bottom: 1rem;
-  } */
+  .navbar__init {
+   padding-top: 1rem;
+    background: rgba(0, 0, 0, 0.6); 
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   justify-content: center;
+  }
+  .navbar__logo{
+    display: inline;
+  }
+  .navbar__logo img{
+    height: 80px;
+  }
+  .navbar__style__input{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .navbar__style__input:focus {
+   max-width: 100%;
+   padding-left: 3rem;
+  }
+  .article__item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .article__descrip{
+    font-weight: bold;
+  }
   .card__general__residents {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     gap: 1rem;
+  }
+  .Button__pagination button {
+    padding: 0 0.8rem;
+    background: #00c9a7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1rem 0.2rem;
+    box-shadow: 0 0 5px #00c9a7, 0 0 10px #00c9a7, 0 0 10px #00c9a7;
+    transition: transform 0.3s;
   }
 }

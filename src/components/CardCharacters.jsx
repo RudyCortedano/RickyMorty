@@ -10,7 +10,7 @@ const CardCharacters = ({residentUrl}) => {
   }, [])
   
   return (
-    <>    
+    <> 
       <article className='card__resident'>
         <header className='card__header'>
           <img className='card__image' src={resident?.image} alt="" />

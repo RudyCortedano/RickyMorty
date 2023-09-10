@@ -29,7 +29,7 @@ const Home = () => {
   };
   // -----------------------------------------------------------------------------------------//
   // Paginacion
-  const itemsPerPage = 10; // card por pagina
+  const itemsPerPage = 8; // card por pagina
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
 
@@ -46,8 +46,6 @@ const Home = () => {
   };
   // -----------------------------------------------------------------------------------------//
 
-  console.log(location)
-
   if (loading) {
     return <Loader />;
   }
@@ -58,19 +56,23 @@ const Home = () => {
       ) : (
         <>
           <nav className="navbar__init">
-            {/* <div className="navbar__logo"></div> */}
+            <div className="navbar__logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1200px-Rick_and_Morty.svg.png" alt="" />
+            </div>
             <div className="navbar__input">
               <form onSubmit={handleSubmit}>
                 <input
                   className="navbar__style__input"
                   ref={inputSearch}
                   type="text"
+                  placeholder="1 to 126"
                 />
               </form>
             </div>           
           </nav>
 
           <LocationInfo location={location} />
+
           <main className="card__global">
             <div className="card__general__residents">
               {currentItems?.map((residentUrl) => (
