@@ -231,6 +231,7 @@ text-align: center;
   display: grid;
   place-content: center;
   height: 100vh;
+  color: aliceblue;
 }
 /* ------------------------------------------------------------ */
 @media (max-width: 500px) {
@@ -256,6 +257,10 @@ text-align: center;
   .navbar__style__input:focus {
    max-width: 100%;
    padding-left: 3rem;
+  }
+  .article__info{
+    height: fit-content;
+    padding-bottom: 1rem;
   }
   .article__item {
     display: flex;

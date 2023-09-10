@@ -64,7 +64,7 @@ const Home = () => {
                 <input
                   className="navbar__style__input"
                   ref={inputSearch}
-                  type="text"
+                  type="number"
                   placeholder="1 to 126"
                 />
               </form>
