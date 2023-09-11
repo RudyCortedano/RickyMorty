@@ -31,16 +31,17 @@ body::-webkit-scrollbar-thumb {
   background-position: center;
   margin-bottom: 1rem;
   box-shadow: 0 0 5px #4ffbdf, 0 0 8px #4ffbdf, 0 0 8px #4ffbdf;
+  padding: 0 1rem;
 }
-.navbar__logo{
+.navbar__logo {
   display: none;
 }
 .navbar__input {
   display: flex;
   justify-content: flex-end;
-  padding: 2rem;
+  padding: 2rem 0;
 }
-.navbar__style__input {
+.navbar__input input {
   width: 0;
   outline: none;
   border-radius: 100vh;
@@ -55,11 +56,50 @@ body::-webkit-scrollbar-thumb {
   background-size: 25px;
   background-repeat: no-repeat;
 }
-.navbar__style__input:focus {
+.navbar__input input:focus {
   width: 400px;
   cursor: initial;
   background-position: 10px;
 }
+/***********************************************************************************************/
+/* Buscador con sugerencias */
+.sugerencia {
+  margin-left: 10px;
+  border-bottom: 1px solid lavender;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  /* margin: 0 1rem; */
+}
+.react-autosuggest__suggestions-container--open {
+  position: absolute;
+  width: 400px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  border-radius: 20px;
+  margin-top: 5px;
+  right: 1rem;
+  max-height: 260px;
+  overflow: hidden;
+  border-radius: 5px;
+  z-index: 2;
+}
+.react-autosuggest__suggestions-list {
+  list-style: none;
+  margin-bottom: 0px;
+  padding-left: 0px;
+  cursor: pointer;
+  text-align: left;
+  margin-top: 5px;
+  color: black;
+  /* margin: 0 1rem; */
+}
+.react-autosuggest__suggestion--highlighted {
+  background-color: #00c9a7;
+  color: white;
+}
+/***********************************************************************************************/
 /* ------------------------------------------------------------ */
 /* spinner de carga y background animado*/
 .loader {
@@ -130,9 +170,9 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   list-style: none;
 }
-.article__locationName{
+.article__locationName {
   margin-top: 3rem;
-text-align: center;
+  text-align: center;
   color: white;
 }
 /* ------------------------------------------------------------ */
@@ -157,15 +197,16 @@ text-align: center;
   z-index: 100;
   transition: 0.3s;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
+  z-index: 1;
 }
-.card__resident:hover{
-  box-shadow: 0 0 10px #B39CD0, 0 0 15px #B39CD0, 0 0 15px #B39CD0;
+.card__resident:hover {
+  box-shadow: 0 0 10px #b39cd0, 0 0 15px #b39cd0, 0 0 15px #b39cd0;
   /* background: rgba(255, 255, 255, 0.8); */
   background: white;
   color: #00c9a7;
 }
-.card__resident:active{
+.card__resident:active {
   transform: scale(1.1);
 }
 .card__resident .card__image {
@@ -236,29 +277,30 @@ text-align: center;
 /* ------------------------------------------------------------ */
 @media (max-width: 500px) {
   .navbar__init {
-   padding-top: 1rem;
-    background: rgba(0, 0, 0, 0.6); 
+    padding-top: 1rem;
+    background: rgba(0, 0, 0, 0.6);
     height: fit-content;
     display: flex;
     flex-direction: column;
-   align-items: center;
-   justify-content: center;
+    align-items: center;
+    justify-content: center;
   }
-  .navbar__logo{
+  .navbar__logo {
     display: inline;
   }
-  .navbar__logo img{
+  .navbar__logo img {
     height: 80px;
   }
-  .navbar__style__input{
-    display: flex;
-    justify-content: flex-end;
+  /* .navbar__input input {
+    width: 100%;
+  } */
+  .navbar__input input :focus{
+    display: none;
   }
-  .navbar__style__input:focus {
-   max-width: 100%;
-   padding-left: 3rem;
+  .react-autosuggest__suggestions-container--open {
+    width: 92%;
   }
-  .article__info{
+  .article__info {
     height: fit-content;
     padding-bottom: 1rem;
   }
@@ -267,8 +309,11 @@ text-align: center;
     flex-direction: column;
     text-align: center;
   }
-  .article__descrip{
+  .article__descrip {
     font-weight: bold;
+  }
+  .card__global{
+    box-sizing: border-box;
   }
   .card__general__residents {
     display: grid;
@@ -286,3 +331,4 @@ text-align: center;
     transition: transform 0.3s;
   }
 }
+

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PaginationResidents from './PaginationResidents'
-import HasError from './HasError'
+import { RickyMortyContext } from '../context/RickyMortyContext'
 
-const LocationInfo = ({location}) => {
+const LocationInfo = () => {
+  const {location} = useContext(RickyMortyContext)
 
   return (
     <>
