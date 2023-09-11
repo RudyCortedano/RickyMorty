@@ -27,6 +27,7 @@ body::-webkit-scrollbar-thumb {
   border-bottom: 1px solid lavender;
   font-size: 1rem;
   padding: 0.5rem 0;
+  
 }
 .react-autosuggest__suggestions-container--open {
   position: absolute;
@@ -42,6 +43,7 @@ body::-webkit-scrollbar-thumb {
   overflow: hidden;
   border-radius: 5px;
   z-index: 2;
+  box-shadow: 0 0 5px #00c9a7, 0 0 10px #00c9a7, 0 0 10px #00c9a7;
 }
 .react-autosuggest__suggestions-list {
   list-style: none;

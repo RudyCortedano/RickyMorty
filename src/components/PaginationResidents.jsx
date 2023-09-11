@@ -1,5 +1,4 @@
 import { Box, Pagination } from "@mui/material";
-import React, { useState } from "react";
 
 const PaginationResidents = ({ pageCount, handleChange }) => {
   return (

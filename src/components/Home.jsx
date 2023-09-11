@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import useFetch from "../hooks/useFech";
+import React, { useContext,  useState } from "react";
+
 import Loader from "../spinner/Loader";
 import getRandomNumber from "../utils/getRandomNumber";
 import LocationInfo from "./LocationInfo";
@@ -41,7 +41,7 @@ const Home = () => {
         <>
           <nav className="navbar__init">
             <div className="navbar__logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1200px-Rick_and_Morty.svg.png" alt="logo" />
+              <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1200px-Rick_and_Morty.svg.png" alt="logo" /></a>              
             </div>        
               <AutoComplete/>              
           </nav>
