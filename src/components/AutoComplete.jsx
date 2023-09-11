@@ -52,7 +52,7 @@ const AutoComplete = () => {
           .get( `https://rickandmortyapi.com/api/location/?name=${suggestion.name}` )        
           .then((res) => {
             setLocation(res.data.results[0])
-            // setValue("")
+            setValue("")
           })
           .finally(() => setLoading(false)) 
       }}
