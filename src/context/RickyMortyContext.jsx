@@ -5,12 +5,30 @@ export const RickyMortyContext = createContext();
 
 const RickyMortyProvider = (props) => {
   // ------------------------------------------------------------------------------------------------//
+  //  Consumo de la api de rickyMorty - ubicaciones
+  const [location, setLocation] = useState();
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`https://rickandmortyapi.com/api/location/${apimorty}`)
+      .then((res) => {
+        setLocation(res.data);
+        setHasError(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setHasError(true);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+  // ------------------------------------------------------------------------------------------------//
   // logica del autocompletado
-  const [apimorty, setApimorty] = useState(getRandomNumber(126));
+  const [apimorty] = useState(getRandomNumber(126));
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(true);
   const [hasError, setHasError] = useState(true);
-  
+
   //  arreglo para obtener las 126 posibles sugerencias, con el enpoints de ubicacion normal solo te
   //  brindara 20 ubicaciones
   const arr = [
@@ -22,46 +40,37 @@ const RickyMortyProvider = (props) => {
     98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112,
     113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126,
   ];
-  
-  const [location, setLocation] = useState();
 
-  useEffect(() => {
-    setLoading(true)
-    axios
-    .get(`https://rickandmortyapi.com/api/location/${apimorty}`)
-    .then((res) => {
-      setLocation(res.data)
-      setHasError(false)
-    })
-    .catch(err => {
-      console.log(err)
-      setHasError(true)
-    })
-    .finally(() => setLoading(false))
-  }, []);
-  
   const search = () => {
+    setLoading(true);
     axios
-    .get(`https://rickandmortyapi.com/api/location/?name=${value}`)
-    .then((res) => setLocation(res.data.results[0]));
+      .get(`https://rickandmortyapi.com/api/location/?name=${value}`)
+      .then((res) => {
+        setLocation(res.data.results[0]);
+        setHasError(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setHasError(true);
+      })
+      .finally(() => setLoading(false));
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     search();
   };
-  // ------------------------------------------------------------------------------------------------//
 
+  // ------------------------------------------------------------------------------------------------//
   return (
     <RickyMortyContext.Provider
       value={{
-        // componente-LocationInfo
+        // componente-Home y LocationInfo
         location,
         loading,
         hasError,
         // componente-AutoComplete
         setLocation,
-        setApimorty,
         value,
         setValue,
         handleSubmit,

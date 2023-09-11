@@ -7,7 +7,7 @@ const AutoComplete = () => {
   const { arr, setLocation, value, setValue, handleSubmit } =  useContext(RickyMortyContext);
   
   const [dataResident126, setDataResident126] = useState(); // manipulara los 126 arreglos de residents
-  const [autosuggestLocation, setAutosuggestLocation] = useState([]);  // sugerencias mostradas
+  const [autosuggestLocation, setAutosuggestLocation] = useState([]);  // sugerencias filtradas al usuario
   
   // ----------------------------------------------------------------------------------//
   //  configurarcion para el filtrado de las ubicaciones
@@ -31,18 +31,16 @@ const AutoComplete = () => {
     return inputLength === 0 ? [] : filtrado;
   };
   // ----------------------------------------------------------------------------------//
-  
+  //  sugerencias retornadas
   const onSuggestionsFetchRequested = ({ value }) => {
     setAutosuggestLocation(filterLocation(value));
   };
-
   const onSuggestionsClearRequested = () => {
     setAutosuggestLocation([]);
   };
   const getSuggestionValue = (suggestion) => {
     return `${suggestion.name}`;
   };
-
   // ----------------------------------------------------------------------------------//
   //  lo que se muestra en el panel de sugerencias
   const renderSuggestion = (suggestion) => (
@@ -58,28 +56,28 @@ const AutoComplete = () => {
     >
       {`${suggestion.id}`}. {`${suggestion.name}`}      
     </div>
-  );
-
+  );  
+  // ----------------------------------------------------------------------------------//
+  //  configuraciones del input
   const onChange = (e, { newValue }) => {
     setValue(newValue);
   };
 
-  // ----------------------------------------------------------------------------------//
-  //  configuraciones del input
   const inputProps = {
     placeholder: "Location name",
     value,
     onChange,
   };
   // ----------------------------------------------------------------------------------//
-  //  mostrar en el panel de sugerencias las 126 ubicaciones
+  //  mostrando en el panel de sugerencias las 126 posibles ubicaciones
   useEffect(() => {
     axios
       .get(`https://rickandmortyapi.com/api/location/${arr}`)
-      .then((res) => setDataResident126(res?.data));
+      .then((res) => setDataResident126(res.data));
   }, []);
   // ----------------------------------------------------------------------------------//
-  // manipular el panel de sugerencia con el boton enter
+  // manipular el panel de sugerencia con el teclado en el caso que
+  //  desee usar las flechas y darle buscar con enter.
   const eventEnter = (e) => {
     if (e.key === "Enter") {
       let currentLocation = dataResident126.filter(
@@ -89,13 +87,10 @@ const AutoComplete = () => {
     }
   };
   // ----------------------------------------------------------------------------------//
-
   return (
     <>
       <form onSubmit={handleSubmit}>
-        {/* <div className="unidor"> */}
-        <div className="navbar__input">      
-          {/* <div className="navbar__style__input"> */}
+        <div className="navbar__input">         
             <Autosuggest
               suggestions={autosuggestLocation}
               onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -104,13 +99,8 @@ const AutoComplete = () => {
               renderSuggestion={renderSuggestion}
               inputProps={inputProps}
               onSuggestionSelected={eventEnter}
-            />
-          {/* </div> */}
-          </div>
-          {/* <div className="button">
-            <button>Search</button>
-          </div> */}
-        {/* </div> */}
+            />     
+          </div>     
       </form>
     </>
   );

@@ -7,7 +7,6 @@
 }
 body {
   background: #4b4453;
-  /* background: #000; */
 }
 body::-webkit-scrollbar {
   width: 1rem;
@@ -18,57 +17,16 @@ body::-webkit-scrollbar-thumb {
 }
 /* ------------------------------------------------------------ */
 /* navbar */
-.navbar__init {
-  position: relative;
-  width: 100%;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 300px;
-  background-image: url(https://toptoys2u.co.uk/cdn/shop/collections/Website_Category_banners_13.png?v=1662986669);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 5px #4ffbdf, 0 0 8px #4ffbdf, 0 0 8px #4ffbdf;
-  padding: 0 1rem;
-}
 .navbar__logo {
   display: none;
 }
-.navbar__input {
-  display: flex;
-  justify-content: flex-end;
-  padding: 2rem 0;
-}
-.navbar__input input {
-  width: 0;
-  outline: none;
-  border-radius: 100vh;
-  padding: 0.5rem 1.5rem;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: #4ffbdf -3px -3px 15px, #4ffbdf 5px 5px 15px;
-  padding-left: 40px;
-  background-image: url(https://cdn.pixabay.com/photo/2013/10/01/16/55/magnifying-glass-189254_1280.png);
-  background-position: center;
-  background-size: 25px;
-  background-repeat: no-repeat;
-}
-.navbar__input input:focus {
-  width: 400px;
-  cursor: initial;
-  background-position: 10px;
-}
-/***********************************************************************************************/
+/* ------------------------------------------------------------ */
 /* Buscador con sugerencias */
 .sugerencia {
   margin-left: 10px;
   border-bottom: 1px solid lavender;
   font-size: 1rem;
   padding: 0.5rem 0;
-  /* margin: 0 1rem; */
 }
 .react-autosuggest__suggestions-container--open {
   position: absolute;
@@ -93,13 +51,12 @@ body::-webkit-scrollbar-thumb {
   text-align: left;
   margin-top: 5px;
   color: black;
-  /* margin: 0 1rem; */
+
 }
 .react-autosuggest__suggestion--highlighted {
   background-color: #00c9a7;
   color: white;
 }
-/***********************************************************************************************/
 /* ------------------------------------------------------------ */
 /* spinner de carga y background animado*/
 .loader {
@@ -202,7 +159,6 @@ body::-webkit-scrollbar-thumb {
 }
 .card__resident:hover {
   box-shadow: 0 0 10px #b39cd0, 0 0 15px #b39cd0, 0 0 15px #b39cd0;
-  /* background: rgba(255, 255, 255, 0.8); */
   background: white;
   color: #00c9a7;
 }
@@ -274,6 +230,26 @@ body::-webkit-scrollbar-thumb {
   height: 100vh;
   color: aliceblue;
 }
+.btn__HasError{
+  text-align: center;
+  margin: 2rem 0;
+}
+.btn__exit { 
+  background: #00c9a7;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  width: 100px;
+  box-shadow: 0 0 10px #4ffbdf, 0 0 20px #4ffbdf, 0 0 20px #4ffbdf;
+  transition: .3s;
+}
+.btn__exit:hover{
+  background: white;
+  color: #00c9a7;
+}
 /* ------------------------------------------------------------ */
 @media (max-width: 500px) {
   .navbar__init {
@@ -284,18 +260,36 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
   }
   .navbar__logo {
     display: inline;
   }
   .navbar__logo img {
-    height: 80px;
+    height: 70px;
   }
-  /* .navbar__input input {
+  form {
+    width: 90%;
+  }
+  .navbar__input {
+    padding: 1rem 0;
+  }
+  .navbar__input input {
     width: 100%;
-  } */
-  .navbar__input input :focus{
-    display: none;
+    outline: none;
+    border-radius: 100vh;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: #4ffbdf -3px -3px 15px, #4ffbdf 5px 5px 15px;
+    padding-left: 40px;
+    background-image: url(https://cdn.pixabay.com/photo/2013/10/01/16/55/magnifying-glass-189254_1280.png);
+    background-position: center;
+    background-position-x: 10px;
+    background-size: 25px;
+    background-repeat: no-repeat;
   }
   .react-autosuggest__suggestions-container--open {
     width: 92%;
@@ -312,7 +306,7 @@ body::-webkit-scrollbar-thumb {
   .article__descrip {
     font-weight: bold;
   }
-  .card__global{
+  .card__global {
     box-sizing: border-box;
   }
   .card__general__residents {
@@ -331,4 +325,46 @@ body::-webkit-scrollbar-thumb {
     transition: transform 0.3s;
   }
 }
-
+@media (min-width: 501px) {
+  .navbar__init {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 300px;
+    background-image: url(https://toptoys2u.co.uk/cdn/shop/collections/Website_Category_banners_13.png?v=1662986669);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 5px #4ffbdf, 0 0 8px #4ffbdf, 0 0 8px #4ffbdf;
+    padding: 0 1rem;
+  }
+  .navbar__logo {
+    display: none;
+  }
+  .navbar__input {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .navbar__input input {
+    width: 0;
+    outline: none;
+    border-radius: 100vh;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: #4ffbdf -3px -3px 15px, #4ffbdf 5px 5px 15px;
+    padding-left: 40px;
+    background-image: url(https://cdn.pixabay.com/photo/2013/10/01/16/55/magnifying-glass-189254_1280.png);
+    background-position: center;
+    background-size: 25px;
+    background-repeat: no-repeat;
+  }
+  .navbar__input input:focus {
+    width: 400px;
+    background-position-x: 10px;
+  }
+}

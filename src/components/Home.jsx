@@ -12,24 +12,6 @@ import AutoComplete from "./AutoComplete";
 
 const Home = () => {
   const {location, loading,hasError} = useContext(RickyMortyContext)
-  // const [inputValue, setInputValue] = useState(getRandomNumber(126));
-
-  // const url = `https://rickandmortyapi.com/api/location/${
-  //   inputValue || "hola"
-  // }`;
-  // const [location, getLocation, hasError, loading] = useFetch(url);
-
-  // useEffect(() => {
-  //   getLocation();
-  // }, [inputValue]);
-
-  // const inputSearch = useRef();
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   setInputValue(inputSearch.current.value.trim());
-  // };
   // -----------------------------------------------------------------------------------------//
   // Paginacion
   const itemsPerPage = 8; // card por pagina
@@ -48,7 +30,6 @@ const Home = () => {
     setItemOffset(newOffset);
   };
   // -----------------------------------------------------------------------------------------//
-
   if (loading) {
     return <Loader />;
   }
@@ -60,9 +41,9 @@ const Home = () => {
         <>
           <nav className="navbar__init">
             <div className="navbar__logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1200px-Rick_and_Morty.svg.png" alt="" />
-            </div>      
-              <AutoComplete/>                  
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1200px-Rick_and_Morty.svg.png" alt="logo" />
+            </div>        
+              <AutoComplete/>              
           </nav>
 
           <LocationInfo  />
