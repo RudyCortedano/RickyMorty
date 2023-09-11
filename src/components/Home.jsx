@@ -1,7 +1,5 @@
 import React, { useContext,  useState } from "react";
-
 import Loader from "../spinner/Loader";
-import getRandomNumber from "../utils/getRandomNumber";
 import LocationInfo from "./LocationInfo";
 import CardCharacters from "./CardCharacters";
 import BackgroundHome from "../spinner/BackgroundHome";

@@ -59,6 +59,7 @@ const RickyMortyProvider = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     search();
+    setValue("")
   };
 
   // ------------------------------------------------------------------------------------------------//
@@ -71,6 +72,7 @@ const RickyMortyProvider = (props) => {
         hasError,
         // componente-AutoComplete
         setLocation,
+        setLoading,
         value,
         setValue,
         handleSubmit,

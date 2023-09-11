@@ -4,7 +4,7 @@ import axios from "axios";
 import { RickyMortyContext } from "../context/RickyMortyContext";
 
 const AutoComplete = () => {
-  const { arr, setLocation, value, setValue, handleSubmit } =  useContext(RickyMortyContext);
+  const { arr, setLocation, value, setValue, handleSubmit, setLoading} =  useContext(RickyMortyContext);
   
   const [dataResident126, setDataResident126] = useState(); // manipulara los 126 arreglos de residents
   const [autosuggestLocation, setAutosuggestLocation] = useState([]);  // sugerencias filtradas al usuario
@@ -47,11 +47,14 @@ const AutoComplete = () => {
     <div
       className="sugerencia"
       onClick={() => {
+        setLoading(true)
         axios
-          .get(
-            `https://rickandmortyapi.com/api/location/?name=${suggestion.name}`
-          )
-          .then((res) => setLocation(res.data.results[0]));
+          .get( `https://rickandmortyapi.com/api/location/?name=${suggestion.name}` )        
+          .then((res) => {
+            setLocation(res.data.results[0])
+            // setValue("")
+          })
+          .finally(() => setLoading(false)) 
       }}
     >
       {`${suggestion.id}`}. {`${suggestion.name}`}      
@@ -60,7 +63,7 @@ const AutoComplete = () => {
   // ----------------------------------------------------------------------------------//
   //  configuraciones del input
   const onChange = (e, { newValue }) => {
-    setValue(newValue);
+    setValue(newValue);   
   };
 
   const inputProps = {

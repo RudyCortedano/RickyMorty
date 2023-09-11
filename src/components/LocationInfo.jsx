@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import PaginationResidents from './PaginationResidents'
 import { RickyMortyContext } from '../context/RickyMortyContext'
 
 const LocationInfo = () => {
