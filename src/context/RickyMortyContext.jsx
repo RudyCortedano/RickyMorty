@@ -1,12 +1,16 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import getRandomNumber from "../utils/getRandomNumber";
+
 export const RickyMortyContext = createContext();
 
 const RickyMortyProvider = (props) => {
   // ------------------------------------------------------------------------------------------------//
   //  Consumo de la api de rickyMorty - ubicaciones
   const [location, setLocation] = useState();
+  const [apimorty] = useState(getRandomNumber(126));
+  const [loading, setLoading] = useState(true);
+  const [hasError, setHasError] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -24,10 +28,7 @@ const RickyMortyProvider = (props) => {
   }, []);
   // ------------------------------------------------------------------------------------------------//
   // logica del autocompletado
-  const [apimorty] = useState(getRandomNumber(126));
   const [value, setValue] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [hasError, setHasError] = useState(true);
 
   //  arreglo para obtener las 126 posibles sugerencias, con el enpoints de ubicacion normal solo te
   //  brindara 20 ubicaciones
@@ -58,6 +59,7 @@ const RickyMortyProvider = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     search();
     setValue("")
   };

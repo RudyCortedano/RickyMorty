@@ -7,6 +7,9 @@ import PaginationResidents from "./PaginationResidents";
 import HasError from "./HasError";
 import { RickyMortyContext } from "../context/RickyMortyContext";
 import AutoComplete from "./AutoComplete";
+// import fondo from "../../public/fondo_1.wepb"
+import fondo from "../assets/fondo_2.jpg"
+
 
 const Home = () => {
   const {location, loading,hasError} = useContext(RickyMortyContext)
@@ -39,7 +42,9 @@ const Home = () => {
         <>
           <nav className="navbar__init">
             <div className="navbar__logo">
-              <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1200px-Rick_and_Morty.svg.png" alt="logo" /></a>              
+              {/* <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1200px-Rick_and_Morty.svg.png" alt="logo" /></a>               */}
+              <a href="/"><img src="https://www.impericon.com/cdn/shop/collections/20190325_rick_mobile_2x_header.jpg?v=1715766496" alt="logo" /></a>              
+              {/* <a href="/"><img src={`${fondo}`} alt="logo" /></a>               */}
             </div>        
               <AutoComplete/>              
           </nav>
